@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import avatar from "../assets/avatar.webp";
+import avatar from "../assets/avatar.svg";
 import "../styles/Username.css";
 
 function Username() {
@@ -10,6 +10,7 @@ function Username() {
     e.preventDefault();
     console.log(username);
   };
+
   return (
     <div className="container">
       <div className="card">
@@ -18,11 +19,18 @@ function Username() {
           <p>Explore more by connecting with us</p>
         </div>
         <div className="card-body">
-          <img src={avatar} alt="avatar" />
           <form onSubmit={handleSubmit}>
-            <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
+            <input
+              type="text"
+              placeholder="Username"
+              required
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
             <button type="submit">Let's Go</button>
-            <p>Are you new here? <Link to="/register">Register</Link></p>
+            <p>
+              Are you new here? <Link to="/register">Register</Link>
+            </p>
           </form>
         </div>
       </div>
