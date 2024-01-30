@@ -3,7 +3,7 @@ import { register, registerMail, authenticate, login, user, generateOTP, verifyO
 
 const router = Router();
 
-// Post Methods
+//? Post Methods
 router.route("/register").post((req, res) => {
   register(req, res);
 }); // register user
@@ -20,7 +20,7 @@ router.route("/login").post((req, res) => {
     login(req, res);
 }); // login in app
 
-// Get Methods
+//? GEt Methods
 router.route("/user/:username").get((req, res) => {
     user(req, res);
 }); // get user by username
@@ -37,7 +37,7 @@ router.route("/create-reset-session").get((req, res) => {
     createResetSession(req, res);
 }); // reset all the variables
 
-// Put Methods
+//? Put Methods
 router.route("/update-user").put((req, res) => {
     updateUser(req, res);
 }); // update user

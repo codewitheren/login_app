@@ -1,51 +1,70 @@
-// POST: /api/register
+import { setDriver } from "mongoose";
+
+//* POST: /api/register
+//* body: {
+//*    username: String,
+//*    email: String,
+//*     password: String
+//*
+//* }
 const register = async (req, res) => {
-    res.json({ message: "Register" });
+  res.json({ message: "Register" });
 };
 
-// POST: /api/register-mail
+//* POST: /api/register-mail
 const registerMail = async (req, res) => {
-    res.json({ message: "Register Mail" });
+  res.json({ message: "Register Mail" });
 };
 
-// POST: /api/authenticate
+//* POST: /api/authenticate
 const authenticate = async (req, res) => {
-    res.json({ message: "Authenticate" });
-}
+  res.json({ message: "Authenticate" });
+};
 
-// POST: /api/login
+//* POST: /api/login
 const login = async (req, res) => {
-    res.json({ message: "Login" });
-}
+  res.json({ message: "Login" });
+};
 
-// GET: /api/user/:username
+//* GET: /api/user/:username
 const user = async (req, res) => {
-    res.json({ message: "User" });
-}
+  res.json({ message: "User" });
+};
 
-// GET: /api/generate-otp
+//* GET: /api/generate-otp
 const generateOTP = async (req, res) => {
-    res.json({ message: "Generate OTP" });
-}
+  res.json({ message: "Generate OTP" });
+};
 
-// GET: /api/verify-otp
+//* GET: /api/verify-otp
 const verifyOTP = async (req, res) => {
-    res.json({ message: "Verify OTP" });
-}
+  res.json({ message: "Verify OTP" });
+};
 
-// GET: /api/create-reset-session
+//* GET: /api/create-reset-session
 const createResetSession = async (req, res) => {
-    res.json({ message: "Create Reset Session" });
-}
+  res.json({ message: "Create Reset Session" });
+};
 
-// PUT: /api/update-user
+//* PUT: /api/update-user
 const updateUser = async (req, res) => {
-    res.json({ message: "Update User" });
-}
+  res.json({ message: "Update User" });
+};
 
-// PUT: /api/reset-password
+//* PUT: /api/reset-password
 const resetPassword = async (req, res) => {
-    res.json({ message: "Reset Password" });
-}
+  res.json({ message: "Reset Password" });
+};
 
-export { register, registerMail, authenticate, login, user, generateOTP, verifyOTP, createResetSession, updateUser, resetPassword };
+export {
+  register,
+  registerMail,
+  authenticate,
+  login,
+  user,
+  generateOTP,
+  verifyOTP,
+  createResetSession,
+  updateUser,
+  resetPassword,
+};
