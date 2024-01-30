@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import morgan from "morgan";
 import connect from "./database/connect.js";
+import router from "./router/route.js";
 
 const app = express();
 
@@ -15,6 +16,8 @@ const PORT = 5000;
 app.get("/", (req, res) => {
   res.status(200).json({ message: "Hello World" });
 });
+
+app.use("/api", router);
 
 connect()
   .then(() => {
