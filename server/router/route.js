@@ -1,49 +1,60 @@
 import { Router } from "express";
-import { register, registerMail, authenticate, login, user, generateOTP, verifyOTP, createResetSession, updateUser, resetPassword } from "../controllers/appController.js";
+import * as controller from "../controllers/appController.js";
+import auth from "../middleware/auth.js";
 
 const router = Router();
 
 //? Post Methods
+//* Register user
 router.route("/register").post((req, res) => {
-  register(req, res);
-}); // register user
+  controller.register(req, res);
+});
 
+//* Send the mail
 router.route("/register-mail").post((req, res) => {
-    registerMail(req, res);
-}); // send the mail
+  controller.registerMail(req, res);
+});
 
+//* Authenticate user
 router.route("/authenticate").post((req, res) => {
-    authenticate(req, res);
-}); // authenticate user
+  controller.authenticate(req, res);
+});
 
-router.route("/login").post((req, res) => {
-    login(req, res);
-}); // login in app
+//* Login in app
+router.route("/login").post(controller.verifyUser, (req, res) => {
+  controller.login(req, res);
+});
 
 //? GEt Methods
+//* Get user by username
 router.route("/user/:username").get((req, res) => {
-    user(req, res);
-}); // get user by username
+  controller.getUser(req, res);
+});
 
+//* Generate OTP
 router.route("/generate-otp").get((req, res) => {
-    generateOTP(req, res);
-}); // generate OTP
+  controller.generateOTP(req, res);
+});
 
+//* Verify OTP
 router.route("/verify-otp").get((req, res) => {
-    verifyOTP(req, res);
-}); // verify OTP
+  controller.verifyOTP(req, res);
+});
 
+//* Reset all the variables
 router.route("/create-reset-session").get((req, res) => {
-    createResetSession(req, res);
-}); // reset all the variables
+  controller.createResetSession(req, res);
+});
 
 //? Put Methods
-router.route("/update-user").put((req, res) => {
-    updateUser(req, res);
-}); // update user
+//* Update user
+router.route("/update-user").put(auth, (req, res) => {
+  controller.updateUser(req, res);
+});
 
+//* Reset password
 router.route("/reset-password").put((req, res) => {
-    resetPassword(req, res);
+  controller.resetPassword(req, res);
 }); // reset password
 
 export default router;

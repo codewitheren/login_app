@@ -3,6 +3,9 @@ import cors from "cors";
 import morgan from "morgan";
 import connect from "./database/connect.js";
 import router from "./router/route.js";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
 
@@ -11,8 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("tiny"));
 
-const PORT = 5000;
-
+const PORT = process.env.PORT || 5000;
 app.get("/", (req, res) => {
   res.status(200).json({ message: "Hello World" });
 });

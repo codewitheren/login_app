@@ -56,25 +56,15 @@ function Profile() {
             <input
               type="text"
               placeholder="Username"
-              required
               value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              disabled
             />
             <input
               type="email"
               placeholder="Email"
-              required
               autoComplete="off"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              required
-              autoComplete="off"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              disabled
             />
             <button type="submit">Update</button>
           </form>
